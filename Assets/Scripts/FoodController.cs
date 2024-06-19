@@ -8,7 +8,9 @@ public class FoodController : MonoBehaviour
     [SerializeField] private float _lifetime;
     [SerializeField] private float _speed;
     [SerializeField] private int _hungerValue;
-
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _eatSFX;
+    
     private Rigidbody _rb;
     private GameManager _gm;
 
@@ -48,6 +50,7 @@ public class FoodController : MonoBehaviour
                 if (target.hungerNeed <= 0)
                 {
                     _gm.score += target.score;
+                    _audioSource.PlayOneShot(_eatSFX);
                     Destroy(other.gameObject);
                 }
             }

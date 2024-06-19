@@ -8,16 +8,18 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _movementSpeed;
     [SerializeField] private GameObject _foodPrefabs;
     [SerializeField] private Transform _shootTransform;
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _throwhSFX;
 
     private CharacterController _controller;
     private Animator _animator;
     private GameManager _gm;
     private float _horizontal;
     
-    
     private static readonly int IsMoving = Animator.StringToHash("IsMoving");
     private static readonly int Horizontal = Animator.StringToHash("Horizontal");
     private static readonly int IsGameOver = Animator.StringToHash("GameOver");
+    private static readonly int Throwing = Animator.StringToHash("Throwing");
 
     private void Start()
     {
@@ -65,6 +67,8 @@ public class PlayerController : MonoBehaviour
 
     private void HandleShot()
     {
+        _animator.SetTrigger(Throwing);
+        _audioSource.PlayOneShot(_throwhSFX);
         Instantiate(_foodPrefabs, _shootTransform.position, Quaternion.identity);
     }
 }

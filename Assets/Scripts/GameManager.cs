@@ -17,6 +17,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TMP_Text _timerText;
     [SerializeField] private GameObject _pauseCanvas;
     [SerializeField] private GameObject _gameOverCanvas;
+    [SerializeField] private GameObject _camera;
+
+    private Animator _animator;
+    private static readonly int GameOver = Animator.StringToHash("GameOver");
+
+    private void Start()
+    {
+        _animator = _camera.GetComponent<Animator>();
+    }
 
     private void Update()
     {
@@ -86,6 +95,7 @@ public class GameManager : MonoBehaviour
 
     public void HandleGameOver()
     {
+        _animator.SetTrigger(GameOver);
         _gameOverCanvas.SetActive(true);
     }
 }
