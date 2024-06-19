@@ -1,5 +1,5 @@
 Uji Kompentensi Junior Game Programmer
-Muhammad FariZ Hartawan
+Muhammad Fariz Hartawan
 
 Fitur yang belum terimplementasi
 - VFX (Asset VFX Tidak Ditemukan)
