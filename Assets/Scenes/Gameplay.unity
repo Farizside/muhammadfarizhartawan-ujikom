@@ -2696,7 +2696,7 @@ MonoBehaviour:
   score: 0
   isPaused: 0
   isGameOver: 0
-  time: 20
+  time: 60
   _scoreText: {fileID: 1971286156}
   _scoreText1: {fileID: 1934965235}
   _timerText: {fileID: 1656247982}
